@@ -53,37 +53,35 @@ char out[2];
 
 int main()
 {
-    /* Lê uma string da entrada padrão */
-    int n = read(STDIN_FD, (void*) buffer, BYTE_LEN);
+  /* Lê uma string da entrada padrão */
+  int n = read(STDIN_FD, (void*) buffer, BYTE_LEN);
 
-    char s1[1] = buffer[0];
-    char s2[1] = buffer[5];
-    char op[1] = buffer[2];
+  int s1 = buffer[0]-'0';
+  int s2 = buffer[4]-'0';
 
-    int s1_int = s1[0]-'0';
-    int s2_int = s2[0]-'0';
+  int result;
 
-    int result;
+  if(buffer[2] == '+') {
+      result = s1+s2;
+  }
 
-    if(op == '+') {
-        result = s1_int+s2_int;
-    }
+  if(buffer[2] == '-') {
+      result = s1-s2;
+  }
 
-    if(op == '-') {
-        result = s1_int-s2_int;
-    }
+  if(buffer[2] == '*') {
+      result = s1*s2;
+  }
 
-    if(op == '*') {
-        result = s1_int*s2_int;
-    }
+  if (result == 0){
+    out[0]='0';
+  } else{
+    out[0]=result+'0';
+  }
 
-    
-    char out[0] = result+'0';
-    char out[1] = '/n';
+  out[1] = '\n';
 
-    /* Imprime a string lida e os dois caracteres adicionados 
-    * na saída padrão. */
-    write(STDOUT_FD, (void*) out, 2);
+  write(STDOUT_FD, (void*) out, 4);
 
-    return 0;
+  return 0;
 }
