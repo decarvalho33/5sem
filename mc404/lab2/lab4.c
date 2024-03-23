@@ -99,6 +99,7 @@ void hex_to_dec(char *source, char *destiny, int bit_len)
 #define BIT_LEN 34
 
 char in[BIT_LEN];
+char decimal[BIT_LEN];
 char out1[BIT_LEN];
 char out2[BIT_LEN];
 char out3[BIT_LEN];
@@ -137,13 +138,19 @@ tem que printar 5 saídas:
     if (in[1]=='x') {
         //é em hexa
 
-        copy_str(in, out4, BIT_LEN);
-        
-        hex_to_dec(in, out)
+        copy_str(in, out4, BIT_LEN); //4 feito
+        hex_to_dec(in, decimal, BIT_LEN);
+
+        dec_to_bin(decimal, out1, BIT_LEN); //1 feito
 
         if (in[2]>'8'){
             //é negativo
             
+            
+
+            dec_to_format_out2()
+            
+
         }
     }
 
